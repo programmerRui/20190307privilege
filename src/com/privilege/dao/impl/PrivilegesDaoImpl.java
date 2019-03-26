@@ -13,7 +13,7 @@ public class PrivilegesDaoImpl implements PrivilegesDao {
     private QueryRunner queryRunner= C3P0Util.getQueryRunner();
     @Override
     public List<Privileges> getPrivilegeList(int roleid) {
-        String sql="select *from \"privileges\" where id in(SELECT privilege_id FROM roleprivilege where role_id=?)";
+        String sql="select * from \"privileges\" where \"id\" in(SELECT \"privilege_id\" FROM \"roleprivilege\" where \"role_id\"=?)";
         List<Privileges> query=null;
         try {
             query= queryRunner.query(sql, new BeanListHandler<Privileges>(Privileges.class), roleid);
@@ -25,7 +25,7 @@ public class PrivilegesDaoImpl implements PrivilegesDao {
 
     @Override
     public List<Privileges> getALLPrivilegesList() {
-        String sql="select *from \"privileges\"";
+        String sql="select *from \"privileges\" ORDER BY \"id\"";
         List<Privileges> list=null;
         try {
             list = queryRunner.query(sql, new BeanListHandler<Privileges>(Privileges.class));
@@ -52,7 +52,7 @@ public class PrivilegesDaoImpl implements PrivilegesDao {
 
     @Override
     public int addPrivilegesByRoleid(String[] addroleids ,int roleid) {
-        String sql="insert into  \"roleprivilege\" value(?,?)";
+        String sql="insert into  \"roleprivilege\" values(?,?)";
         int add=0;
         try {
             for(int i=0;i<addroleids.length;i++){

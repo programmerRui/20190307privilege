@@ -13,7 +13,7 @@ public class RolesDaoImpl implements RolesDao {
     private QueryRunner queryRunner= C3P0Util.getQueryRunner();
     @Override
     public List<Roles> selectRoles() {
-        String sql="select * from \"roles\"";
+        String sql="select * from \"roles\" ORDER BY \"id\"";
         List<Roles> rolesList=null;
         try {
             rolesList = queryRunner.query(sql, new BeanListHandler<Roles>(Roles.class));

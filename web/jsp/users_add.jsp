@@ -38,7 +38,7 @@
 <script>
 	if($("#password2").val()!=null){
         function checkPassword() {
-            if($("#nickname").val()!=$("#password2").val()){
+            if($("#password1").val()!=$("#password2").val()){
                 alert("前后输入的密码不一致,请重新输入");
                 $("#password2").val("");
             }
@@ -65,6 +65,7 @@
                         $("#password1").val("");
                         $("#password2").val("");
                         $("#nickname").val("");
+                        window.location="/UserServlet.do?choose=4";
                     }else{
                         alert("注册失败");
                     }
