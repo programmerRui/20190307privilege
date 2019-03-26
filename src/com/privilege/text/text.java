@@ -21,6 +21,7 @@ public class text {
             e.printStackTrace();
         }
         System.out.println(query);
+        System.out.println(query);
     }
 
 }
