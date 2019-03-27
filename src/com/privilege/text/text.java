@@ -11,6 +11,7 @@ import java.util.List;
 public class text {
 
     public static void main(String[] args) {
+        
         QueryRunner queryRunner= C3P0Util.getQueryRunner();
         String sql="select *from \"privileges\" ";
         List<Privileges> query=null;
